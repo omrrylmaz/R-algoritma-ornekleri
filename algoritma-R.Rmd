@@ -1,0 +1,898 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+
+
+
+## kullanıcının gırdıgı ıkı toplar
+```{r}
+toplam <- function(x,y) {
+  
+  x <- readline(prompt = "ilk sayiyi giriniz :")
+  y <- readline(prompt = " ikinci sayiyi girniz :")
+  
+  x <- as.integer(x)
+  y <- as.integer(y)
+  
+  top <- x+y
+  
+ cat(top)
+  ##cat(x,"ve",y,"toplamı :",top)
+}
+
+
+toplam()
+
+```
+
+
+## girilen iki sayı arasinda bes islem yapar
+```{r}
+
+bes_islem <- function(x,y){
+  
+  x <- readline(prompt = "ilk sayiyi gir;")
+  y <- readline(prompt = "ikinci sayiyi gir;")
+  
+  x <- as.integer(x)
+  y <- as.integer(y)
+  
+  top <- x+y
+  carp <- x*y
+  bol <- x/y
+  cıkar <- x-y
+  
+  cat(x, "ve", y, "toplamı:", top,"\n")
+  cat(x, "ve", y, "carpım:", carp,"\n")
+  cat(x, "ve", y, "bolum:", bol,"\n")
+  cat(x, "ve", y, "cıkar:", cıkar,"\n")
+}
+
+
+bes_islem()
+
+
+
+```
+
+## girilen ıkı sayının ıkı katını verır
+```{r}
+
+iki_kat <- function(x){
+  
+  x <- readline(prompt = "sayiyi girinız :")
+  
+  x <- as.integer(x)
+  
+  c <- 2*x
+  
+  cat(x,"iki katı:",c)
+  
+  
+}
+
+
+iki_kat()
+
+
+
+```
+
+
+
+
+#Girilen üç sayının aritmetik ortalamasını hesaplar.
+```{r}
+aritmetik <- function(a,b,c){
+  
+  a <- readline(prompt = "ilk sayı:")
+  b <- readline(prompt = "ikinci sayı:")
+  c <- readline(prompt = "ucuncu sayı:")
+  
+  
+  a <- as.integer(a)
+  b <- as.integer(b)
+  c <- as.integer(c)
+  
+  sonuc <- (a+b+c)/3
+  
+  cat(a,b,"ve",c,"nin aritmetiği :",sonuc)
+  
+}
+
+
+aritmetik()
+
+
+
+
+```
+
+
+## Girilen not değerinin başarılı mı başarısız mı olduğunu bulur
+
+
+
+```{r}
+
+not <- function(x){
+  
+  x <- readline(prompt = "notunuzu giriniz :")
+  x <- as.integer(x)
+  
+  
+  
+  if (  x <  50   )
+    print("başarasız")
+  
+  else
+    print("başarılı")
+}
+
+
+
+not()
+
+
+```
+
+
+
+## Girilen bir sayının tek ya da çift sayı olduğunu bulur.
+
+```{r}
+
+tek_cift <- function(x){
+  
+  x <- readline("sayıyı gır:")
+  x <- as.integer(x)
+  
+  
+  if(  x %% 2 == 0 )
+    
+    cat(x, " çifttir")
+  
+  else
+    cat(x, "tektir")
+  
+}
+
+tek_cift()
+
+
+```
+
+
+
+// Girilen üç sayı arasındaki en büyük sayıyı bulur
+
+
+```{r}
+
+
+
+geb <- function(x,y,z){
+  
+  if (  x < y ){
+    if (  z < y )
+      cat(y)
+  }
+  
+  if (  y < x ){
+    if( z < x )
+      cat(x)
+  }
+  
+  if ( x < z){
+    if( y < z )
+      cat(z)
+  }
+  
+}
+
+
+geb(15,45,75)
+
+
+
+
+geb_2 <- function (x,y,z){
+  ceb = x
+  
+  if ( y > ceb )
+    ceb = y
+  
+  else if ( z > ceb )
+    ceb = z
+  
+  cat("en buuyuk sayı:", ceb)
+  
+  
+}
+
+
+
+geb_2(15,85,45)
+
+
+
+
+
+
+```
+
+
+
+
+
+// Girilen üç sayı arasında tekrar olup olmadığını bulur
+
+```{r}
+
+
+tekrar <- function(x,y,z){
+  
+  if ( x == y) 
+    print("tekrar var")
+  if ( x == z )
+    print("tekrar var")
+  if ( y == z)
+    print("tekrar var")
+}
+
+tekrar(5,5,10)
+
+
+
+
+
+```
+
+
+
+
+// Girilen iki sayıdan ilkinin ikincisinin tam katı olup olmadığını bulur.
+
+
+```{r}
+
+ikimi <- function(x,y){
+  
+  if (  x == y*2 )
+    cat("tam katı")
+  if (  y == x*2 )
+    cat("tam katı")
+  else
+    cat("değil")
+}
+
+
+
+ikimi(1,30)
+
+
+
+```
+
+
+
+
+// Girilen iki sayıdan herhangi birinin ötekinin tam katı olup olmadığını bulur.
+// İlk sayının küçük ya da büyük olmasının bir önemi yok.
+
+
+
+
+
+
+
+
+
+
+
+// Girilen bir notun DDS deki harf notu karşılığı bulur
+
+
+```{r}
+not <- function(x){
+  x <- readline(prompt = "notunuzu girin:")
+  x <- as.integer(x)
+  
+  if ( 85 <= x )
+    print("aa")
+  else if (80 <= x )
+   print("bb")
+  else
+    print("kotu")
+}
+not()
+```
+
+
+
+
+
+
+// "SAYI OPERATÖR SAYI" formatında girilen dört işlemin sonucunu bulur.
+// 12 + 158 veya 56 x 0 veya 55 : 11
+// + - x . :
+
+
+```{r}
+
+
+
+dort <- function(sayi1, islem,sayi2){
+  
+  sayi1 <- readline(prompt = "ilk sayi:")
+  sayi2 <- readline("ikinci sayı:")
+  sayi1 <- as.integer(sayi1)
+  sayi2 <- as.integer(sayi2)
+  islem <- readline("işlem:")
+  switch(islem,
+         "+" = sayi1+sayi2,
+         "*"  = sayi1*sayi2,
+         "/" = sayi1/sayi2,
+         stop("hatali"))
+}
+
+dort()
+
+```
+
+
+
+
+// Ekrana girilen sayı kadar "Merhaba" kelimesini yazdırır.
+
+
+```{r}
+
+mer <- function(adet){
+  i = 0
+  while( i < adet ) {
+    cat("merahaba","\n")
+  i = i + 1
+ 
+  }
+}
+
+mer(10)
+
+
+```
+
+
+// Ekrana girilen sayı kadar "Dersten X Kez Kaldım" kelimesini yazdırır.
+```{r}
+
+kaldım <- function(x){
+  i =1
+  for(i in x){
+  cat("dersten",x,"kaldın","\n")
+  }
+}
+
+kaldım(10)
+
+
+```
+
+
+
+
+```{r}
+
+while( i < 10){
+  cat("asd")
+  i = i + 1
+}
+
+
+```
+
+
+
+
+girilen ıkı sayı arasındakı toplamı
+```{r}
+
+ara_toplam <- function(x,y){
+  
+  depo = a
+  
+  if (  x >  y  ){
+    
+    depo = x
+    x = y
+    y = depo 
+    
+  }
+    
+  while( x <= y){
+    top = x+ y
+    x = x +1
+    
+  }
+  
+  cat("sonuc", top)
+  
+}
+
+ara_toplam(5,19)
+
+```
+
+
+0 < a < b c < d < 10
+
+dbca == 5 
+```{r}
+a <- 1:6    1 2 3 4 5 6
+b <- 2:7    2 3 4 5 6 7
+c <- 3:8    3 4 5 6 7 8
+d <- 4:9    4 5 6 7 8 9
+#a <- as.integer(a)
+#b <- as.integer(b)
+#c <- as.integer(c)
+#d <- as.integer(d)
+
+A <- a %% 10
+B <- (b %% 100) - A
+C <- (c %% 1000) - B
+D <- (d %% 10000) - C
+
+adet = 0
+
+while(a<b<c<d){
+  if((D + C + B + A) %% 5 == 0)
+  adet = adet + 1
+  
+  cat(adet)
+  
+}
+
+
+
+
+
+```
+
+Girilen terim numarasına karşılık gelen Fibonacci dizisindeki terimi bulur
+
+
+0 1 1 2 3 5 8 13 21 34 55 89 
+
+
+
+```{r}
+fib <- function(x){
+  
+  x <- readline(prompt = "sayıyı giriniz:")
+  x <- as.integer(x)
+  
+  ilk = 0
+  ikinci = 1
+  i = 1
+  
+  if( x == 1)
+    cat(0)
+  
+  
+ while(i < x){
+   
+   depo = ilk
+   ilk = ikinci 
+   ikinci = depo + ikinci
+   i = i + 1
+   cat(ilk," ")
+ }
+  
+   
+  
+}
+
+fib()
+
+
+```
+
+
+
+
+```{r}
+
+fact <- function(x){
+  x <- readline(prompt = "fac ıcın sayı gır:")
+  x <- integer(x)
+  
+  car = 1
+  i = 1
+  for( i in 1:length(x)){
+    
+    car = car*i
+    
+    cat(car," ")
+    
+  }
+  
+}
+
+fact(15)
+
+
+```
+
+
+
+* * * * * 
+* * * * *  
+* * * * *  
+* * * * * 
+* * * * *  
+
+
+
+```{r}
+
+
+
+kare <- function(kenar1,kenar2){
+  
+ j = 1 
+ i = 1  
+for ( j in 1:kenar2){  
+  for(i in 1:kenar1){
+    cat(" *")
+  }
+  cat("\n")
+ }
+}
+
+kare(5,10)
+
+
+```
+
+
+// Bir tam sayının yaklaşık karekökünü hesaplar.
+
+// sqrt () fonksiyonu kullanmadan.
+
+
+```{r}
+# FOR ILE
+
+
+
+
+
+
+
+
+
+# WHILE İLE
+karekok2 <- function(x){
+  i = 0
+  while( i * i <= x){
+    i = i + 1
+  }
+  
+  return(i - 1)
+  
+}
+
+karekok2(15)
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
+```{r}
+
+
+karekok3 <- function(x){
+  
+x <- readline(prompt = "sayı gır:")
+x <- as.integer(x)
+
+
+  for(i in 1:length(x))
+    if( i*i < x)
+      cat(i)
+
+
+}
+
+
+system.time(karekok3(9))
+tahmin
+
+```
+
+
+
+
+
+```{r}
+sqrtic <- function(tahmin, x) {
+    if (yetericeiyimi(tahmin, x)) 
+        tahmin else sqrtic(gelistir(tahmin, x), x)
+}
+
+yetericeiyimi <- function(tahmin, x) {
+    abs(tahmin^2 - x) < abs(x) * 0.001
+}
+
+gelistir <- function(tahmin, x) {
+    mean(c(tahmin, x/tahmin))
+}
+
+sqrt_deneme <- function(x) {
+    sqrtic(1, x)
+}
+
+sqrt_deneme(4)
+```
+
+
+
+
+
+
+
+
+
+
+```{r}
+sqrtic <- function(x) {
+    if (yetericeiyimi(x)) 
+        1 else sqrtic(gelistir(x))
+}
+
+yetericeiyimi <- function(x) {
+    abs(1^2 - x) < abs(x) * 0.001
+}
+
+gelistir <- function(x) {
+    mean(c(1, x/1))
+}
+
+sqrt1 <- function(x) {
+    sqrtic(x)
+}
+
+sqrt1(15)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Kullanıcının girdiği bir tam sayıyı 5'in en yakın katına yuvarlar.
+
+```{r}
+
+bes <- function(){
+  
+  x <- readline(prompt = "sayı gırınız:")
+  x <- as.integer(x)
+  
+  
+  
+  if ( x %% 10 < 3)
+    x = x - (x%%10)
+  
+  else if ( x %% 10 < 8)
+    x = x - (x %% 10) + 5
+  
+  else
+    x = x - (x%%10) + 10
+  
+  cat(x)
+  
+  
+}
+
+
+
+
+
+
+```
+
+rasgele 10 sayı uret
+```{r}
+
+ceiling(runif(10, 1, 100))
+
+
+```
+
+
+
+// Bilgisayarın 1 - 100 arasında tuttuğu bir sayıyı tahmin etme oyunu
+
+```{r}
+
+sayı_bulma_oyunu <- function(){
+  
+  sayi <- readline("tahmin et : ")
+  sayi <- as.integer(sayi)
+  
+  
+  bilgisayar = ceiling(runif(1,1,100))
+  hak = 9
+  while(hak < 10){  
+  hak = hak +1
+  if ( sayi < bilgisayar)
+      print("daha buyuk")
+      
+  
+  
+  else if ( sayi > bilgisayar)
+    print("daha kucuk")
+  
+  else
+    print("tebrikler")
+    break
+    
+  }
+  
+}  
+  
+
+sayı_bulma_oyunu()
+
+
+
+```
+
+
+
+```{r}
+
+
+oyun <- function(yanit){
+
+  alt_limit = 1
+  ust_limit = 100
+  tahmin = 5
+  while(1){
+    
+    tahmin = alt_limit +  ceiling(runif(1,1,100))  / (ust_limit - alt_limit + 1)
+    
+    
+    if(yanit == 1)
+      alt_limit = tahmin + 1
+    
+    else if ( yanit == 2)
+      ust_limit = tahmibn - 1  
+     
+    else
+      print("kazandın")
+    break
+    
+  }
+
+
+}
+
+
+
+
+
+
+oyun(1)
+
+
+```
+
+
+
+
+
+yazı-tura siülasyonu
+
+```{r}
+
+yazı_tura <- function(adet){
+  
+  
+  yazi = 0
+  tura = 0
+  
+  
+  
+  
+  
+  
+}
+
+
+
+
+
+para <- function(n){
+  
+  sonuc = sample(c("yazı","tura"), n, replace = TRUE)
+  tablo = table(sonuc)
+  
+  barplot(tablo, main = "para atma deneyı")
+  
+  return(tablo)
+
+}
+
+
+para(15200)
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
